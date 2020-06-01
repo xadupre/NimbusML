@@ -24,32 +24,32 @@ import os
 import sys
 
 
-def install_and_import(package):
-    import importlib
-    try:
-        importlib.import_module(package)
-    except ImportError:
-        import pip
-        pip.main(
-            ['install',
-             '..\\..\\..\\..\\build\\sphinxmdoutput-0.2.4.1-py3-none-any'
-             '.whl'])
-    finally:
-        globals()[package] = importlib.import_module(package)
-
-
-install_and_import('sphinxmdoutput')
+# def install_and_import(package):
+#     import importlib
+#     try:
+#         importlib.import_module(package)
+#     except ImportError:
+#         import pip
+#         pip.main(
+#             ['install',
+#              '..\\..\\..\\..\\build\\sphinxmdoutput-0.2.4.1-py3-none-any'
+#              '.whl'])
+#     finally:
+#         globals()[package] = importlib.import_module(package)
+# 
+# 
+# install_and_import('sphinxmdoutput')
 
 this = os.path.abspath(os.path.dirname(__file__))
 mml = os.path.join(this, "..")
 mxlibs = os.path.join(this, "..", "nimbusml", "mxlibs")
-pathmdoutput = os.path.join(
-    this,
-    "..",
-    "..",
-    "..",
-    "..",
-    "sphinx.ext.mdoutput")
+# pathmdoutput = os.path.join(
+#     this,
+#     "..",
+#     "..",
+#     "..",
+#     "..",
+#     "sphinx.ext.mdoutput")
 sys.path.insert(0, mxlibs)  # path to mxlibs
 sys.path.insert(0, mml)  # path to microsoftml
 sys.path.insert(0, this)
@@ -82,7 +82,7 @@ extensions = ['sphinx.ext.autodoc',
               # But regular is better without it.
               'sphinx.ext.doctest',
               'sphinx.ext.imgmath',
-              'sphinxmdoutput'
+              # 'sphinxmdoutput'
               ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -97,7 +97,7 @@ master_doc = 'index'
 
 # General information about the project (HTML format)
 project = 'nimbusml'
-copyright = '2018, Microsoft'
+copyright = '2018-2020, Microsoft'
 author = 'Microsoft'
 
 # The version info for the project you're documenting, acts as
